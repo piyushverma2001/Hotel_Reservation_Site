@@ -10,7 +10,6 @@ export default class RoomProvider extends Component {
     sortedRooms: [],
     featuredRooms: [],
     loading: true,
-    //
     type: "all",
     capacity: 1,
     price: 0,
@@ -22,12 +21,9 @@ export default class RoomProvider extends Component {
     pets: false
   };
 
-
   componentDidMount() {
-
     let rooms = this.formatData(items);
     let featuredRooms = rooms.filter(room => room.featured === true);
-
     let maxPrice = Math.max(...rooms.map(item => item.price));
     let maxSize = Math.max(...rooms.map(item => item.size));
     this.setState({
@@ -35,7 +31,6 @@ export default class RoomProvider extends Component {
       featuredRooms,
       sortedRooms: rooms,
       loading: false,
-      //
       price: maxPrice,
       maxPrice,
       maxSize
@@ -46,17 +41,18 @@ export default class RoomProvider extends Component {
     let tempItems = items.map(item => {
       let id = item.sys.id;
       let images = item.fields.images.map(image => image.fields.file.url);
-
       let room = { ...item.fields, images, id };
       return room;
     });
     return tempItems;
   }
+
   getRoom = slug => {
     let tempRooms = [...this.state.rooms];
     const room = tempRooms.find(room => room.slug === slug);
     return room;
   };
+
   handleChange = event => {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
@@ -70,6 +66,7 @@ export default class RoomProvider extends Component {
       this.filterRooms
     );
   };
+
   filterRooms = () => {
     let {
       rooms,
