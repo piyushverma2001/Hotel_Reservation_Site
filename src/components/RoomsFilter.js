@@ -3,12 +3,13 @@ import { useContext } from "react";
 import { RoomContext } from "../context";
 import Title from "./Title";
 
+// get all unique values
 const getUnique = (items, value) => {
   return [...new Set(items.map(item => item[value]))];
 };
 
 const RoomsFilter = ({ rooms }) => {
-
+  // react hooks
   const context = useContext(RoomContext);
   const {
     handleChange,
@@ -23,16 +24,17 @@ const RoomsFilter = ({ rooms }) => {
     pets
   } = context;
 
+  // get unique types
   let types = getUnique(rooms, "type");
-
+  // add all
   types = ["all", ...types];
-
+  // map to jsx
   types = types.map((item, index) => (
     <option key={index} value={item}>
       {item}
     </option>
   ));
-
+  // get unique capacity
   let people = getUnique(rooms, "capacity");
   people = people.map((item, index) => (
     <option key={index} value={item}>
@@ -43,9 +45,9 @@ const RoomsFilter = ({ rooms }) => {
     <section className="filter-container">
       <Title title="search rooms" />
       <form className="filter-form">
-
+        {/* select type */}
         <div className="form-group">
-          <label htmlFor="type">room type</label>
+          <label htmlFor="type">Room Type</label>
           <select
             name="type"
             id="type"
@@ -56,7 +58,8 @@ const RoomsFilter = ({ rooms }) => {
             {types}
           </select>
         </div>
-
+        {/* end of select type */}
+        {/* guests  */}
         <div className="form-group">
           <label htmlFor="capacity">Guests</label>
           <select
@@ -69,9 +72,10 @@ const RoomsFilter = ({ rooms }) => {
             {people}
           </select>
         </div>
-
+        {/* end of guests */}
+        {/* room price */}
         <div className="form-group">
-          <label htmlFor="price">room price ${price}</label>
+          <label htmlFor="price">room price ₹{price}</label>
           <input
             type="range"
             name="price"
@@ -83,9 +87,10 @@ const RoomsFilter = ({ rooms }) => {
             className="form-control"
           />
         </div>
-
+        {/* end of room price*/}
+        {/* size */}
         <div className="form-group">
-          <label htmlFor="price">room size </label>
+          <label htmlFor="price">Room Size</label>
           <div className="size-inputs">
             <input
               type="number"
@@ -103,7 +108,8 @@ const RoomsFilter = ({ rooms }) => {
             />
           </div>
         </div>
-
+        {/* end of select type */}
+        {/* extras */}
         <div className="form-group">
           <div className="single-extra">
             <input
@@ -113,7 +119,7 @@ const RoomsFilter = ({ rooms }) => {
               checked={breakfast}
               onChange={handleChange}
             />
-            <label htmlFor="breakfast">breakfast</label>
+            <label htmlFor="breakfast">Breakfast</label>
           </div>
           <div className="single-extra">
             <input
@@ -122,10 +128,10 @@ const RoomsFilter = ({ rooms }) => {
               checked={pets}
               onChange={handleChange}
             />
-            <label htmlFor="breakfast">pets</label>
+            <label htmlFor="breakfast">Pets</label>
           </div>
         </div>
-
+        {/* end of extras type */}
       </form>
     </section>
   );

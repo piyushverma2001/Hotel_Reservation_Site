@@ -17,6 +17,7 @@
   --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
+/* globals */
 body {
   padding-top: 66px;
   color: var(--mainBlack);
@@ -98,6 +99,8 @@ h6 {
   letter-spacing: var(--mainSpacing);
 }
 
+/* end of globals */
+/* Navbar */
 .navbar {
   position: fixed;
   top: 0;
@@ -175,6 +178,8 @@ h6 {
   }
 }
 
+/* end of navbar */
+/* Hero */
 .defaultHero,
 .roomsHero {
   min-height: calc(100vh - 66px);
@@ -189,6 +194,8 @@ h6 {
   min-height: 60vh;
 }
 
+/* End of Hero */
+/* Banner */
 .banner {
   display: inline-block;
   background: rgba(0, 0, 0, 0.5);
@@ -235,6 +242,8 @@ h6 {
   }
 }
 
+/* End of Banner */
+/* Title */
 .section-title {
   text-align: center;
   margin-bottom: 4rem;
@@ -246,6 +255,7 @@ h6 {
   text-transform: capitalize;
   margin-bottom: 1rem;
 }
+
 .section-title div {
   width: 5rem;
   height: 5px;
@@ -253,6 +263,9 @@ h6 {
   background: var(--primaryColor);
 }
 
+/* end of Title */
+
+/* services */
 .services {
   padding: 5rem 0;
 }
@@ -300,6 +313,9 @@ h6 {
   }
 }
 
+/*end of services */
+/* featured rooms */
+
 .featured-rooms {
   padding: 5rem 0;
 }
@@ -327,6 +343,8 @@ h6 {
   }
 }
 
+/* end pf featured rooms */
+/* room */
 .room {
   box-shadow: var(--lightShadow);
   transition: var(--mainTransition);
@@ -399,6 +417,9 @@ h6 {
   letter-spacing: var(--mainSpacing);
 }
 
+/* end of room  */
+/* single room*/
+
 .single-room {
   padding: 5rem 0 0 0;
 }
@@ -467,13 +488,14 @@ h6 {
 }
 
 @media screen and (min-width: 992px) {
+
   .single-room-images,
   .single-room-info,
   .room-extras {
     width: 95vw;
     max-width: 1170px;
   }
-  
+
   .single-room-info {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -485,6 +507,8 @@ h6 {
   }
 }
 
+/* end of single room*/
+/* roomlist */
 .roomslist {
   padding: 5rem 0;
 }
@@ -511,6 +535,8 @@ h6 {
   }
 }
 
+/* end of roomlist */
+/*  rooms fitler*/
 .filter-container {
   padding: 5rem 0;
 }
@@ -570,3 +596,5 @@ h6 {
     max-width: 1170px;
   }
 }
+
+/* end of rooms fitler*/
